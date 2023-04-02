@@ -7,8 +7,7 @@ ip link set up dev eth0
 
 /usr/bin/docker run \
 	--rm \
-	--device=/dev/serial/by-id/usb-OpenMV_OpenMV_Virtual_Comm_Port_in_FS_Mode_387C357D3330-if00 \
-	--device=/dev/serial/by-id/usb-OpenMV_OpenMV_Virtual_Comm_Port_in_FS_Mode_3172326E3330-if00 \
+	-/dev:/dev \
 	--network host \
 	--cap-add SYS_TIME \
 	ros2	

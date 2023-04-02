@@ -1,0 +1,14 @@
+[Unit]
+Description=L3xZ head
+After=docker.servie
+Requires=docker.service
+
+[Service]
+ExecStart=head
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=default.target

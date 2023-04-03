@@ -1,6 +1,6 @@
 [Unit]
 Description=L3XZ Pan/Tilt Head Service
-After=docker.servie
+After=docker.service
 Requires=docker.service
 
 [Service]

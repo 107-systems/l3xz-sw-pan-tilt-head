@@ -17,5 +17,15 @@ After cloning this repository, two parameters have to be configured:
 * Network configuration in the application file (```head```)
 * Path to the serial devices of the OpenMV cameras (```head_launch.py```)
 
-After configuration the software bundle can be installed by simply running ```sudo ./install.sh```.
+After configuration the software bundle can be installed by simply running the installation script:
+~~~bash
+git clone https://github.com/107-systems/l3xz_sw_pan_tilt_head
+cd l3xz_sw_pan_tilt_head
+sudo ./install.sh
+~~~
+
 The Docker environment for the ROS infrastructure will be built and the application files will be bootstrapped over the system. Finally, the software will come up as a ```systemd``` service with the name ```head.service```.
+The status of the software can be checked with the following command:
+~~~bash
+systemctl status head.service
+~~~

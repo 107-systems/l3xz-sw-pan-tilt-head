@@ -23,7 +23,23 @@ git clone https://github.com/107-systems/l3xz-sw-pan-tilt-head
 cd l3xz-sw-pan-tilt-head
 sudo ./install.sh
 ~~~
-
+or cross-compile image for ARM on x86:
+```bash
+docker buildx build \
+  --platform linux/arm64 \
+  --tag ros2 \
+  --output type=docker \
+  .
+```
+followed by exporting the image and copying to the target device:
+```bash
+docker save ros2:latest | gzip > ros2_image_latest.tar.gz
+scp ros2_image_latest.tar.gz root@192.168.8.5:/root
+```
+and concluded by loading the updated image:
+```bash
+docker load < ros2_image_latest.tar.gz
+```
 The Docker environment for the ROS infrastructure will be built and the application files will be bootstrapped over the system. Finally, the software will come up as a ```systemd``` service with the name ```head.service```.
 The status of the software can be checked with the following command:
 ~~~bash
